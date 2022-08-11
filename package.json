@@ -7,7 +7,7 @@
     "build": "webpack --mode=production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oleksii Klypach",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.16.0",
