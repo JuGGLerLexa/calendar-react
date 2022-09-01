@@ -1,27 +1,25 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import moment from "moment";
 import Header from "./components/header/Header.jsx";
 import Calendar from "./components/calendar/Calendar.jsx";
-
 import { getWeekStartDate, generateWeekRange } from "../src/utils/dateUtils.js";
+import Modal from "./components/modal/Modal";
 
 import "./common.scss";
 
-class App extends Component {
-  state = {
-    weekStartDate: new Date(),
-  };
+const App = () => {
+  const [weekStartDate, setWeekStartDate] = useState(new Date());
+};
 
-  render() {
-    const { weekStartDate } = this.state;
-    const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
+// const weekDates = { weekStartDate };
+const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
-    return (
-      <>
-        <Header />
-        <Calendar weekDates={weekDates} />
-      </>
-    );
-  }
-}
+return (
+  <>
+    <Header />
+    <Modal />
+    <Calendar weekDates={weekDates} />
+  </>
+);
 
 export default App;
