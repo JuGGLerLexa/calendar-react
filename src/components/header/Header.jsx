@@ -1,15 +1,22 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
-import './header.scss';
+import "./header.scss";
 
-const Header = () => {
+const Header = ({ today, onCreate }) => {
   return (
     <header className="header">
-      <button className="button create-event-btn">
-        <i className="fas fa-plus create-event-btn__icon"></i>Create
+      <button
+        className="button create-event-btn"
+        onClick={() => onCreate(new Date().getHours(), new Date())}
+      >
+        <i className="fas fa-plus create-event-btn__icon"></i>
+        Create
       </button>
       <div className="navigation">
-        <button className="navigation__today-btn button">Today</button>
+        <button className="navigation__today-btn button" onClick={() => today}>
+          Today
+        </button>
         <button className="icon-button navigation__nav-icon">
           <i className="fas fa-chevron-left"></i>
         </button>
@@ -20,6 +27,10 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  onCreate: PropTypes.func.isRequired, // З PropTypes.element ви можете вказати, що лише один елемент може бути переданий компоненту в якості дочірнього.
 };
 
 export default Header;

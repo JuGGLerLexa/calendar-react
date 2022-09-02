@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
+import { days } from "../../utils/dateUtils.js";
 
-import { days } from '../../utils/dateUtils.js';
+import "./navigation.scss";
 
 const Navigation = ({ weekDates }) => {
   return (
